@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Imposter Game Fixed Same Crewmate Word</title>
+    <style>
+  /* General body styles */
+ 
+/* BODY */
+body {
+    font-family: 'Arial', sans-serif;
+    direction: rtl;
+    padding: 2%;
+    margin: 0;
+    background: linear-gradient(135deg, #1e1e2f, #252545);
+    color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* INPUT + BUTTON CONTAINER */
+input, button {
+    padding: 0.5rem 1rem;
+    margin: 0.3rem;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* GLASS EFFECT INPUT */
+input {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    min-width: 180px;
+    max-width: 250px;
+}
+
+/* GLASS EFFECT BUTTONS */
+button {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.05);
+}
+
+/* LIST STYLING */
+ul {
+    list-style: none;
+    padding: 0;
+    width: 90%;
+    max-width: 450px;
+    margin-top: 1rem;
+}
+
+li {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+    margin: 0.5rem 0;
+    padding: 0.8rem 1rem;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+li span, li button {
+    margin: 0.2rem;
+}
+
+li button {
+    background: rgba(255,95,95,0.2);
+    color: #fff;
+}
+
+li button:hover {
+    background: rgba(255,95,95,0.35);
+}
+
+/* RESPONSIVE */
+@media (max-width: 500px) {
+    body {
+        padding: 1rem;
+    }
+
+    input {
+        min-width: 150px;
+        max-width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    li button {
+        align-self: flex-end;
+        margin-top: 0.5rem;
+    }
+}
+</style>
+</head>
+
+<body>
+    <input id="inputadd" placeholder="الاسم" type="text">
+    <button id="addbtn">إضافة</button>
+    <button id="regenbtn">إعادة تعيين الأدوار</button>
+    <button id="removelast">حذف آخر</button>
+    <ul id="list"></ul>
+
+    <script>
+        // الكلمة الوحيدة لكل crewmate
+        const crewmateWord = "قمر";
+"طبيب",
+"موز",
+"سحور",
+"معلم",
+"جبل",
+"تفاح",
+"سفر",
+"مهندس",
+"تمر",
+"شاطئ",
+"مسجد",
+"عسل",
+"نجار",
+"ليل",
+"بطاطا",
+"فنان",
+"إفطار",
+"طماطم",
+"صديق",
+"قطايف",
+"مطر",
+"مزارع",
+"كنافة",
+"سيارة",
+"دعاء",
+"خباز",
+"شمس",
+"قلم",
+"عيد",
+"أرز",
+"مكتبة",
+"معمول",
+"مصور",
+"صلاة",
+"ليمون",
+"مدرسة",
+"بصل",
+"حافلة",
+"محاسب",
+"هلال",
+"زيتون",
+"طائرة",
+"صيام",
+"عدس",
+"موسيقى",
+"ممرض",
+"شوربة",
+"بحر",
+"مطار",
+"طباخ",
+"برتقال",
+"ركوع",
+"حديقة",
+"كاتب",
+"جزر",
+"كرسي",
+"فلفل",
+"هاتف",
+"جامعة",
+"كتاب",
+"دفتر",
+"ساعة",
+"مصباح",
+"سرير",
+"طاولة",
+"نافذة",
+"باب",
+"بيت",
+"مدينة",
+"قرية",
+"نزهة",
+"رحلة",
+"قطار",
+"طريق",
+"جسر",
+"نهر",
+"محيط",
+"سماء",
+"سحاب",
+"ثلج",
+"رياح",
+"نجوم",
+"نهار",
+"صباح",
+"مساء",
+"وقت",
+"دقيقة",
+"يوم",
+"أسبوع",
+"شهر",
+"سنة",
+"تقويم",
+"تاريخ",
+"ذكرى",
+"مهرجان",
+"ثقافة",
+"تراث",
+"لغة",
+"عربية",
+"كلمة",
+"جملة",
+"قصة",
+"رواية",
+"شعر",
+"قصيدة",
+"مقال",
+"فكرة",
+"إبداع",
+"ابتكار",
+"اختراع",
+"تكنولوجيا",
+"حاسوب",
+"إنترنت",
+"موقع",
+"برنامج",
+"تطبيق",
+"بيانات",
+"معلومات",
+"شبكة",
+"تفكير",
+"إيمان",
+"رحمة",
+"بركة",
+"مغفرة",
+"صبر",
+"حب",
+"فرح",
+"حزن",
+"أمل",
+"طموح",
+"نجاح",
+"قوة",
+"شجاعة",
+"ذكاء",
+"نشاط",
+"صحة",
+"رياضة",
+"كرة",
+"ملعب",
+"سباق",
+"مباراة",
+"فوز",
+"خسارة",
+"مدرب",
+"لاعب",
+"فريق",
+"جمهور",
+"احتفال",
+"هدية",
+"كعكة",
+"شمعة",
+"بالون",
+"موسيقى",
+"رقص",
+"لعبة",
+"مغامرة",
+"مطار",
+"رحلة",
+"مركب",
+"صيد",
+"غابة",
+"صحراء",
+"واحة",
+"مزرعة",
+"زهرة",
+"شجرة",
+"وردة",
+"عشب",
+"حديقة",
+"بستان",
+"طائر",
+"حمامة",
+"نسر",
+"عصفور",
+"بطة",
+"ديك",
+"حصان",
+"جمل",
+"بقرة",
+"خروف",
+"ماعز",
+"سمكة",
+"قرش",
+"حوت",
+"دلفين",
+"سلحفاة",
+"قطة",
+"كلب",
+"أسد",
+"نمر",
+"فيل",
+"زرافة",
+"دب",
+"قرد",
+"ثعلب",
+"ذئب",
+"نحلة",
+"فراشة",
+"نملة",
+"جرادة",
+"عنكبوت",
+"ضفدع",
+"تمساح",
+"سحلية",
+"حية",
+"ثعبان",
+"بركان",
+"جبل",
+"تل",
+"وادي",
+"سهل",
+"شاطئ",
+"بحيرة",
+"ينبوع",
+"مطر",
+"عاصفة",
+"برق",
+"رعد",
+"شمس",
+"قمر",
+"نجمة",
+"فضاء",
+"كوكب",
+"مجرة",
+"مذنب",
+"قمر صناعي",
+"مركبة",
+"محطة",
+"رواد",
+"علم",
+"بحث",
+"تجربة",
+"مختبر",
+"نظرية",
+"اكتشاف",
+"تجربة",
+"تطوير",
+"تحليل",
+"تخطيط",
+"تنظيم",
+"إدارة",
+"قيادة",
+"مشروع",
+"شركة",
+"عمل",
+"مكتب",
+"وظيفة",
+"راتب",
+"نجاح",
+"تقدم",
+"خبرة",
+"مهارة",
+"تعليم",
+"دراسة",
+"تدريب",
+"معهد",
+"مدرسة",
+"جامعة",
+"مكتبة",
+"كتاب",
+"مجلد",
+"موسوعة",
+"صحيفة",
+"مجلة",
+"مقال",
+"خبر",
+"إعلان",
+"إشارة",
+"طريق",
+"جسر",
+"ممر",
+"ساحة",
+"شارع",
+"ميدان",
+"منزل",
+"شقة",
+"فيلا",
+"قصر",
+"مطبخ",
+"حمام",
+"غرفة",
+"سقف",
+"أرض",
+"جدار",
+"مفتاح",
+"قفل",
+"صندوق",
+"حقيبة",
+"ملابس",
+"قميص",
+"بنطال",
+"معطف",
+"قبعة",
+"حذاء",
+"جورب",
+"وشاح",
+"حزام",
+"ساعة",
+"خاتم",
+"قلادة",
+"سوار",
+"مرآة",
+"مشط",
+"صابون",
+"منشفة",
+"عطر",
+"فرشاة",
+"معجون",
+"كوب",
+"صحن",
+"ملعقة",
+"شوكة",
+"سكين",
+"قدر",
+"مقلاة",
+"موقد",
+"ثلاجة",
+"فرن",
+"خلاط",
+"غلاية",
+"طاولة",
+"كرسي",
+"أريكة",
+"مكتبة",
+"خزانة",
+"سرير",
+"وسادة",
+"بطانية",
+"ستارة",
+"سجادة";
+
+        const inputadd = document.getElementById("inputadd");
+        const addbtn = document.getElementById("addbtn");
+        const regenbtn = document.getElementById("regenbtn");
+        const removelast = document.getElementById("removelast");
+        const list = document.getElementById("list");
+
+        // البيانات المخزنة
+        let people = JSON.parse(localStorage.getItem("people") || "[]"); // [{id,name}]
+        let roles = JSON.parse(localStorage.getItem("roles") || "{}"); // {id: "Imposter" OR "Crewmate"}
+
+        function saveData() {
+            localStorage.setItem("people", JSON.stringify(people));
+            localStorage.setItem("roles", JSON.stringify(roles));
+        }
+
+        function makeId() {
+            return Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+        }
+
+        function pickRandomIndex(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        // تعيين الدور لأول مرة: Imposter واحد، الباقي Crewmates
+        function assignRolesOnce() {
+            roles = {};
+            if (people.length === 0) return;
+            const imposterIndex = pickRandomIndex(people.length);
+            people.forEach((p, i) => {
+                roles[p.id] = (i === imposterIndex) ? "Imposter" : "Crewmate";
+            });
+            saveData();
+        }
+
+        function renderList() {
+            list.innerHTML = "";
+            people.forEach((p, idx) => {
+                const li = document.createElement("li");
+                li.textContent = `${idx + 1} - ${p.name} `;
+                const btn = document.createElement("button");
+                btn.textContent = "Check Role";
+                btn.onclick = () => {
+                    const r = roles[p.id];
+                    if (!r) return alert("الأدوار لم تُحدد بعد");
+                    if (r === "Imposter") alert(`${p.name} هو Imposter!`);
+                    else alert(`${p.name} هو Crewmate: ${crewmateWord}`);
+                };
+                li.appendChild(btn);
+                list.appendChild(li);
+            });
+        }
+
+        // Initial setup
+        if (people.length > 0 && Object.keys(roles).length === 0) assignRolesOnce();
+        renderList();
+
+        // الأحداث
+        addbtn.addEventListener("click", () => {
+            const name = inputadd.value.trim();
+            if (!name) return;
+            const newPerson = { id: makeId(), name };
+            people.push(newPerson);
+            if (Object.keys(roles).length === 0) {
+                assignRolesOnce();
+            } else {
+                // كل جديد crewmate بنفس الكلمة
+                roles[newPerson.id] = "Crewmate";
+                saveData();
+            }
+            renderList();
+            inputadd.value = "";
+        });
+
+        regenbtn.addEventListener("click", () => {
+            assignRolesOnce();
+            renderList();
+            alert("تم إعادة تعيين الأدوار");
+        });
+
+        removelast.addEventListener("click", () => {
+            if (people.length === 0) return;
+            const removed = people.pop();
+            delete roles[removed.id];
+            // تأكد وجود Imposter واحد
+            if (!Object.values(roles).includes("Imposter") && people.length > 0) {
+                const newImpId = people[pickRandomIndex(people.length)].id;
+                roles[newImpId] = "Imposter";
+            }
+            saveData();
+            renderList();
+        });
+    </script>
+</body>
+
+</html>
