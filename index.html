@@ -5,118 +5,120 @@
     <meta charset="UTF-8">
     <title>Imposter Game Fixed Same Crewmate Word</title>
     <style>
-  /* General body styles */
- 
-/* BODY */
-body {
-    font-family: 'Arial', sans-serif;
-    direction: rtl;
-    padding: 2%;
-    margin: 0;
-    background: linear-gradient(135deg, #1e1e2f, #252545);
-    color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-}
+        /* General body styles */
 
-/* INPUT + BUTTON CONTAINER */
-input, button {
-    padding: 0.5rem 1rem;
-    margin: 0.3rem;
-    font-size: 1rem;
-    border-radius: 12px;
-    border: none;
-    outline: none;
-    transition: all 0.3s ease;
-}
+        /* BODY */
+        body {
+            font-family: 'Arial', sans-serif;
+            direction: rtl;
+            padding: 2%;
+            margin: 0;
+            background: linear-gradient(135deg, #1e1e2f, #252545);
+            color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-/* GLASS EFFECT INPUT */
-input {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(8px);
-    color: #fff;
-    min-width: 180px;
-    max-width: 250px;
-}
+        /* INPUT + BUTTON CONTAINER */
+        input,
+        button {
+            padding: 0.5rem 1rem;
+            margin: 0.3rem;
+            font-size: 1rem;
+            border-radius: 12px;
+            border: none;
+            outline: none;
+            transition: all 0.3s ease;
+        }
 
-/* GLASS EFFECT BUTTONS */
-button {
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(8px);
-    color: #fff;
-    cursor: pointer;
-    font-weight: bold;
-}
+        /* GLASS EFFECT INPUT */
+        input {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            min-width: 180px;
+            max-width: 250px;
+        }
 
-button:hover {
-    background: rgba(255,255,255,0.25);
-    transform: scale(1.05);
-}
+        /* GLASS EFFECT BUTTONS */
+        button {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-/* LIST STYLING */
-ul {
-    list-style: none;
-    padding: 0;
-    width: 90%;
-    max-width: 450px;
-    margin-top: 1rem;
-}
+        button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
 
-li {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(6px);
-    margin: 0.5rem 0;
-    padding: 0.8rem 1rem;
-    border-radius: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
+        /* LIST STYLING */
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 90%;
+            max-width: 450px;
+            margin-top: 1rem;
+        }
 
-li span, li button {
-    margin: 0.2rem;
-}
+        li {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(6px);
+            margin: 0.5rem 0;
+            padding: 0.8rem 1rem;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-li button {
-    background: rgba(255,95,95,0.2);
-    color: #fff;
-}
+        li span,
+        li button {
+            margin: 0.2rem;
+        }
 
-li button:hover {
-    background: rgba(255,95,95,0.35);
-}
+        li button {
+            background: rgba(255, 95, 95, 0.2);
+            color: #fff;
+        }
 
-/* RESPONSIVE */
-@media (max-width: 500px) {
-    body {
-        padding: 1rem;
-    }
+        li button:hover {
+            background: rgba(255, 95, 95, 0.35);
+        }
 
-    input {
-        min-width: 150px;
-        max-width: 100%;
-        margin-bottom: 0.5rem;
-    }
+        /* RESPONSIVE */
+        @media (max-width: 500px) {
+            body {
+                padding: 1rem;
+            }
 
-    button {
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-    }
+            input {
+                min-width: 150px;
+                max-width: 100%;
+                margin-bottom: 0.5rem;
+            }
 
-    li {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+            button {
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+            }
 
-    li button {
-        align-self: flex-end;
-        margin-top: 0.5rem;
-    }
-}
-</style>
+            li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            li button {
+                align-self: flex-end;
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -126,198 +128,198 @@ li button:hover {
     <button id="removelast">حذف آخر</button>
     <ul id="list"></ul>
 
-   <script>
-    // الكلمات + التلميحات
-const crewmateWords = {
-"ليمون":"حامض",
-"تفاح":"فاكهة",
-"موز":"أصفر",
-"تمر":"رمضان",
-"عسل":"حلو",
-"قمر":"ليل",
-"شمس":"نهار",
-"مطر":"طقس",
-"ثلج":"برد",
-"رياح":"هواء",
-"طبيب":"مستشفى",
-"معلم":"مدرسة",
-"مهندس":"بناء",
-"مزارع":"زراعة",
-"نجار":"خشب",
-"شاطئ":"بحر",
-"مسجد":"صلاة",
-"كتاب":"قراءة",
-"مدرسة":"تعليم",
-"سيارة":"طريق"
-};
+    <script>
+        // الكلمات + التلميحات
+        const crewmateWords = {
+            "ليمون": "حامض",
+            "تفاح": "فاكهة",
+            "موز": "أصفر",
+            "تمر": "رمضان",
+            "عسل": "حلو",
+            "قمر": "ليل",
+            "شمس": "نهار",
+            "مطر": "طقس",
+            "ثلج": "برد",
+            "رياح": "هواء",
+            "طبيب": "مستشفى",
+            "معلم": "مدرسة",
+            "مهندس": "بناء",
+            "مزارع": "زراعة",
+            "نجار": "خشب",
+            "شاطئ": "بحر",
+            "مسجد": "صلاة",
+            "كتاب": "قراءة",
+            "مدرسة": "تعليم",
+            "سيارة": "طريق"
+        };
 
-let currentWord = "";
-let currentHint = "";
+        let currentWord = "";
+        let currentHint = "";
 
-const inputadd = document.getElementById("inputadd");
-const addbtn = document.getElementById("addbtn");
-const regenbtn = document.getElementById("regenbtn");
-const removelast = document.getElementById("removelast");
-const list = document.getElementById("list");
+        const inputadd = document.getElementById("inputadd");
+        const addbtn = document.getElementById("addbtn");
+        const regenbtn = document.getElementById("regenbtn");
+        const removelast = document.getElementById("removelast");
+        const list = document.getElementById("list");
 
-// البيانات
-let people = JSON.parse(localStorage.getItem("people") || "[]");
-let roles = JSON.parse(localStorage.getItem("roles") || "{}");
+        // البيانات
+        let people = JSON.parse(localStorage.getItem("people") || "[]");
+        let roles = JSON.parse(localStorage.getItem("roles") || "{}");
 
-// حفظ
-function saveData(){
-localStorage.setItem("people", JSON.stringify(people));
-localStorage.setItem("roles", JSON.stringify(roles));
-}
+        // حفظ
+        function saveData() {
+            localStorage.setItem("people", JSON.stringify(people));
+            localStorage.setItem("roles", JSON.stringify(roles));
+        }
 
-// ID
-function makeId(){
-return Date.now().toString(36) + Math.random().toString(36).slice(2,6);
-}
+        // ID
+        function makeId() {
+            return Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+        }
 
-// رقم عشوائي
-function pickRandomIndex(max){
-return Math.floor(Math.random()*max);
-}
+        // رقم عشوائي
+        function pickRandomIndex(max) {
+            return Math.floor(Math.random() * max);
+        }
 
-// اختيار كلمة
-function chooseWord(){
-const words = Object.keys(crewmateWords);
+        // اختيار كلمة
+        function chooseWord() {
+            const words = Object.keys(crewmateWords);
 
-const randomWord = words[Math.floor(Math.random()*words.length)];
+            const randomWord = words[Math.floor(Math.random() * words.length)];
 
-currentWord = randomWord;
-currentHint = crewmateWords[randomWord];
-}
+            currentWord = randomWord;
+            currentHint = crewmateWords[randomWord];
+        }
 
-// توزيع الأدوار
-function assignRolesOnce(){
+        // توزيع الأدوار
+        function assignRolesOnce() {
 
-chooseWord();
+            chooseWord();
 
-roles = {};
+            roles = {};
 
-if(people.length === 0) return;
+            if (people.length === 0) return;
 
-const imposterIndex = pickRandomIndex(people.length);
+            const imposterIndex = pickRandomIndex(people.length);
 
-people.forEach((p,i)=>{
+            people.forEach((p, i) => {
 
-roles[p.id] = (i === imposterIndex) ? "Imposter" : "Crewmate";
+                roles[p.id] = (i === imposterIndex) ? "Imposter" : "Crewmate";
 
-});
+            });
 
-saveData();
-}
+            saveData();
+        }
 
-// عرض القائمة
-function renderList(){
+        // عرض القائمة
+        function renderList() {
 
-list.innerHTML = "";
+            list.innerHTML = "";
 
-people.forEach((p,idx)=>{
+            people.forEach((p, idx) => {
 
-const li = document.createElement("li");
+                const li = document.createElement("li");
 
-li.textContent = `${idx+1} - ${p.name}`;
+                li.textContent = `${idx + 1} - ${p.name}`;
 
-const btn = document.createElement("button");
+                const btn = document.createElement("button");
 
-btn.textContent = "Check Role";
+                btn.textContent = "Check Role";
 
-btn.onclick = ()=>{
+                btn.onclick = () => {
 
-const r = roles[p.id];
+                    const r = roles[p.id];
 
-if(!r) return alert("الأدوار لم تُحدد");
+                    if (!r) return alert("الأدوار لم تُحدد");
 
-if(r === "Imposter")
+                    if (r === "Imposter")
 
-alert(`${p.name}\nأنت Imposter\nHint: ${currentHint}`);
+                        alert(`${p.name}\nأنت Imposter\nHint: ${currentHint}`);
 
-else
+                    else
 
-alert(`${p.name}\nالكلمة هي: ${currentWord}`);
+                        alert(`${p.name}\nالكلمة هي: ${currentWord}`);
 
-};
+                };
 
-li.appendChild(btn);
+                li.appendChild(btn);
 
-list.appendChild(li);
+                list.appendChild(li);
 
-});
+            });
 
-}
+        }
 
-// البداية
-if(people.length>0 && Object.keys(roles).length===0)
-assignRolesOnce();
+        // البداية
+        if (people.length > 0 && Object.keys(roles).length === 0)
+            assignRolesOnce();
 
-renderList();
+        renderList();
 
-// إضافة لاعب
-addbtn.addEventListener("click",()=>{
+        // إضافة لاعب
+        addbtn.addEventListener("click", () => {
 
-const name = inputadd.value.trim();
+            const name = inputadd.value.trim();
 
-if(!name) return;
+            if (!name) return;
 
-const newPerson = {id:makeId(),name};
+            const newPerson = { id: makeId(), name };
 
-people.push(newPerson);
+            people.push(newPerson);
 
-if(Object.keys(roles).length===0){
+            if (Object.keys(roles).length === 0) {
 
-assignRolesOnce();
+                assignRolesOnce();
 
-}else{
+            } else {
 
-roles[newPerson.id] = "Crewmate";
+                roles[newPerson.id] = "Crewmate";
 
-saveData();
+                saveData();
 
-}
+            }
 
-renderList();
+            renderList();
 
-inputadd.value="";
+            inputadd.value = "";
 
-});
+        });
 
-// إعادة توزيع
-regenbtn.addEventListener("click",()=>{
+        // إعادة توزيع
+        regenbtn.addEventListener("click", () => {
 
-assignRolesOnce();
+            assignRolesOnce();
 
-renderList();
+            renderList();
 
-alert("تم توزيع الأدوار من جديد");
+            alert("تم توزيع الأدوار من جديد");
 
-});
+        });
 
-// حذف آخر لاعب
-removelast.addEventListener("click",()=>{
+        // حذف آخر لاعب
+        removelast.addEventListener("click", () => {
 
-if(people.length===0) return;
+            if (people.length === 0) return;
 
-const removed = people.pop();
+            const removed = people.pop();
 
-delete roles[removed.id];
+            delete roles[removed.id];
 
-if(!Object.values(roles).includes("Imposter") && people.length>0){
+            if (!Object.values(roles).includes("Imposter") && people.length > 0) {
 
-const newImp = people[pickRandomIndex(people.length)].id;
+                const newImp = people[pickRandomIndex(people.length)].id;
 
-roles[newImp] = "Imposter";
+                roles[newImp] = "Imposter";
 
-}
+            }
 
-saveData();
+            saveData();
 
-renderList();
+            renderList();
 
-});
-   </script>
+        });
+    </script>
 </body>
 
 </html>
