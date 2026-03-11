@@ -126,432 +126,198 @@ li button:hover {
     <button id="removelast">حذف آخر</button>
     <ul id="list"></ul>
 
-    <script>
-        // الكلمة الوحيدة لكل crewmate
-        const crewmateWord = "قمر";
-"طبيب",
-"موز",
-"سحور",
-"معلم",
-"جبل",
-"تفاح",
-"سفر",
-"مهندس",
-"تمر",
-"شاطئ",
-"مسجد",
-"عسل",
-"نجار",
-"ليل",
-"بطاطا",
-"فنان",
-"إفطار",
-"طماطم",
-"صديق",
-"قطايف",
-"مطر",
-"مزارع",
-"كنافة",
-"سيارة",
-"دعاء",
-"خباز",
-"شمس",
-"قلم",
-"عيد",
-"أرز",
-"مكتبة",
-"معمول",
-"مصور",
-"صلاة",
-"ليمون",
-"مدرسة",
-"بصل",
-"حافلة",
-"محاسب",
-"هلال",
-"زيتون",
-"طائرة",
-"صيام",
-"عدس",
-"موسيقى",
-"ممرض",
-"شوربة",
-"بحر",
-"مطار",
-"طباخ",
-"برتقال",
-"ركوع",
-"حديقة",
-"كاتب",
-"جزر",
-"كرسي",
-"فلفل",
-"هاتف",
-"جامعة",
-"كتاب",
-"دفتر",
-"ساعة",
-"مصباح",
-"سرير",
-"طاولة",
-"نافذة",
-"باب",
-"بيت",
-"مدينة",
-"قرية",
-"نزهة",
-"رحلة",
-"قطار",
-"طريق",
-"جسر",
-"نهر",
-"محيط",
-"سماء",
-"سحاب",
-"ثلج",
-"رياح",
-"نجوم",
-"نهار",
-"صباح",
-"مساء",
-"وقت",
-"دقيقة",
-"يوم",
-"أسبوع",
-"شهر",
-"سنة",
-"تقويم",
-"تاريخ",
-"ذكرى",
-"مهرجان",
-"ثقافة",
-"تراث",
-"لغة",
-"عربية",
-"كلمة",
-"جملة",
-"قصة",
-"رواية",
-"شعر",
-"قصيدة",
-"مقال",
-"فكرة",
-"إبداع",
-"ابتكار",
-"اختراع",
-"تكنولوجيا",
-"حاسوب",
-"إنترنت",
-"موقع",
-"برنامج",
-"تطبيق",
-"بيانات",
-"معلومات",
-"شبكة",
-"تفكير",
-"إيمان",
-"رحمة",
-"بركة",
-"مغفرة",
-"صبر",
-"حب",
-"فرح",
-"حزن",
-"أمل",
-"طموح",
-"نجاح",
-"قوة",
-"شجاعة",
-"ذكاء",
-"نشاط",
-"صحة",
-"رياضة",
-"كرة",
-"ملعب",
-"سباق",
-"مباراة",
-"فوز",
-"خسارة",
-"مدرب",
-"لاعب",
-"فريق",
-"جمهور",
-"احتفال",
-"هدية",
-"كعكة",
-"شمعة",
-"بالون",
-"موسيقى",
-"رقص",
-"لعبة",
-"مغامرة",
-"مطار",
-"رحلة",
-"مركب",
-"صيد",
-"غابة",
-"صحراء",
-"واحة",
-"مزرعة",
-"زهرة",
-"شجرة",
-"وردة",
-"عشب",
-"حديقة",
-"بستان",
-"طائر",
-"حمامة",
-"نسر",
-"عصفور",
-"بطة",
-"ديك",
-"حصان",
-"جمل",
-"بقرة",
-"خروف",
-"ماعز",
-"سمكة",
-"قرش",
-"حوت",
-"دلفين",
-"سلحفاة",
-"قطة",
-"كلب",
-"أسد",
-"نمر",
-"فيل",
-"زرافة",
-"دب",
-"قرد",
-"ثعلب",
-"ذئب",
-"نحلة",
-"فراشة",
-"نملة",
-"جرادة",
-"عنكبوت",
-"ضفدع",
-"تمساح",
-"سحلية",
-"حية",
-"ثعبان",
-"بركان",
-"جبل",
-"تل",
-"وادي",
-"سهل",
-"شاطئ",
-"بحيرة",
-"ينبوع",
-"مطر",
-"عاصفة",
-"برق",
-"رعد",
-"شمس",
-"قمر",
-"نجمة",
-"فضاء",
-"كوكب",
-"مجرة",
-"مذنب",
-"قمر صناعي",
-"مركبة",
-"محطة",
-"رواد",
-"علم",
-"بحث",
-"تجربة",
-"مختبر",
-"نظرية",
-"اكتشاف",
-"تجربة",
-"تطوير",
-"تحليل",
-"تخطيط",
-"تنظيم",
-"إدارة",
-"قيادة",
-"مشروع",
-"شركة",
-"عمل",
-"مكتب",
-"وظيفة",
-"راتب",
-"نجاح",
-"تقدم",
-"خبرة",
-"مهارة",
-"تعليم",
-"دراسة",
-"تدريب",
-"معهد",
-"مدرسة",
-"جامعة",
-"مكتبة",
-"كتاب",
-"مجلد",
-"موسوعة",
-"صحيفة",
-"مجلة",
-"مقال",
-"خبر",
-"إعلان",
-"إشارة",
-"طريق",
-"جسر",
-"ممر",
-"ساحة",
-"شارع",
-"ميدان",
-"منزل",
-"شقة",
-"فيلا",
-"قصر",
-"مطبخ",
-"حمام",
-"غرفة",
-"سقف",
-"أرض",
-"جدار",
-"مفتاح",
-"قفل",
-"صندوق",
-"حقيبة",
-"ملابس",
-"قميص",
-"بنطال",
-"معطف",
-"قبعة",
-"حذاء",
-"جورب",
-"وشاح",
-"حزام",
-"ساعة",
-"خاتم",
-"قلادة",
-"سوار",
-"مرآة",
-"مشط",
-"صابون",
-"منشفة",
-"عطر",
-"فرشاة",
-"معجون",
-"كوب",
-"صحن",
-"ملعقة",
-"شوكة",
-"سكين",
-"قدر",
-"مقلاة",
-"موقد",
-"ثلاجة",
-"فرن",
-"خلاط",
-"غلاية",
-"طاولة",
-"كرسي",
-"أريكة",
-"مكتبة",
-"خزانة",
-"سرير",
-"وسادة",
-"بطانية",
-"ستارة",
-"سجادة";
+   <script>
+    // الكلمات + التلميحات
+const crewmateWords = {
+"ليمون":"حامض",
+"تفاح":"فاكهة",
+"موز":"أصفر",
+"تمر":"رمضان",
+"عسل":"حلو",
+"قمر":"ليل",
+"شمس":"نهار",
+"مطر":"طقس",
+"ثلج":"برد",
+"رياح":"هواء",
+"طبيب":"مستشفى",
+"معلم":"مدرسة",
+"مهندس":"بناء",
+"مزارع":"زراعة",
+"نجار":"خشب",
+"شاطئ":"بحر",
+"مسجد":"صلاة",
+"كتاب":"قراءة",
+"مدرسة":"تعليم",
+"سيارة":"طريق"
+};
 
-        const inputadd = document.getElementById("inputadd");
-        const addbtn = document.getElementById("addbtn");
-        const regenbtn = document.getElementById("regenbtn");
-        const removelast = document.getElementById("removelast");
-        const list = document.getElementById("list");
+let currentWord = "";
+let currentHint = "";
 
-        // البيانات المخزنة
-        let people = JSON.parse(localStorage.getItem("people") || "[]"); // [{id,name}]
-        let roles = JSON.parse(localStorage.getItem("roles") || "{}"); // {id: "Imposter" OR "Crewmate"}
+const inputadd = document.getElementById("inputadd");
+const addbtn = document.getElementById("addbtn");
+const regenbtn = document.getElementById("regenbtn");
+const removelast = document.getElementById("removelast");
+const list = document.getElementById("list");
 
-        function saveData() {
-            localStorage.setItem("people", JSON.stringify(people));
-            localStorage.setItem("roles", JSON.stringify(roles));
-        }
+// البيانات
+let people = JSON.parse(localStorage.getItem("people") || "[]");
+let roles = JSON.parse(localStorage.getItem("roles") || "{}");
 
-        function makeId() {
-            return Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
-        }
+// حفظ
+function saveData(){
+localStorage.setItem("people", JSON.stringify(people));
+localStorage.setItem("roles", JSON.stringify(roles));
+}
 
-        function pickRandomIndex(max) {
-            return Math.floor(Math.random() * max);
-        }
+// ID
+function makeId(){
+return Date.now().toString(36) + Math.random().toString(36).slice(2,6);
+}
 
-        // تعيين الدور لأول مرة: Imposter واحد، الباقي Crewmates
-        function assignRolesOnce() {
-            roles = {};
-            if (people.length === 0) return;
-            const imposterIndex = pickRandomIndex(people.length);
-            people.forEach((p, i) => {
-                roles[p.id] = (i === imposterIndex) ? "Imposter" : "Crewmate";
-            });
-            saveData();
-        }
+// رقم عشوائي
+function pickRandomIndex(max){
+return Math.floor(Math.random()*max);
+}
 
-        function renderList() {
-            list.innerHTML = "";
-            people.forEach((p, idx) => {
-                const li = document.createElement("li");
-                li.textContent = `${idx + 1} - ${p.name} `;
-                const btn = document.createElement("button");
-                btn.textContent = "Check Role";
-                btn.onclick = () => {
-                    const r = roles[p.id];
-                    if (!r) return alert("الأدوار لم تُحدد بعد");
-                    if (r === "Imposter") alert(`${p.name} هو Imposter!`);
-                    else alert(`${p.name} هو Crewmate: ${crewmateWord}`);
-                };
-                li.appendChild(btn);
-                list.appendChild(li);
-            });
-        }
+// اختيار كلمة
+function chooseWord(){
+const words = Object.keys(crewmateWords);
 
-        // Initial setup
-        if (people.length > 0 && Object.keys(roles).length === 0) assignRolesOnce();
-        renderList();
+const randomWord = words[Math.floor(Math.random()*words.length)];
 
-        // الأحداث
-        addbtn.addEventListener("click", () => {
-            const name = inputadd.value.trim();
-            if (!name) return;
-            const newPerson = { id: makeId(), name };
-            people.push(newPerson);
-            if (Object.keys(roles).length === 0) {
-                assignRolesOnce();
-            } else {
-                // كل جديد crewmate بنفس الكلمة
-                roles[newPerson.id] = "Crewmate";
-                saveData();
-            }
-            renderList();
-            inputadd.value = "";
-        });
+currentWord = randomWord;
+currentHint = crewmateWords[randomWord];
+}
 
-        regenbtn.addEventListener("click", () => {
-            assignRolesOnce();
-            renderList();
-            alert("تم إعادة تعيين الأدوار");
-        });
+// توزيع الأدوار
+function assignRolesOnce(){
 
-        removelast.addEventListener("click", () => {
-            if (people.length === 0) return;
-            const removed = people.pop();
-            delete roles[removed.id];
-            // تأكد وجود Imposter واحد
-            if (!Object.values(roles).includes("Imposter") && people.length > 0) {
-                const newImpId = people[pickRandomIndex(people.length)].id;
-                roles[newImpId] = "Imposter";
-            }
-            saveData();
-            renderList();
-        });
-    </script>
+chooseWord();
+
+roles = {};
+
+if(people.length === 0) return;
+
+const imposterIndex = pickRandomIndex(people.length);
+
+people.forEach((p,i)=>{
+
+roles[p.id] = (i === imposterIndex) ? "Imposter" : "Crewmate";
+
+});
+
+saveData();
+}
+
+// عرض القائمة
+function renderList(){
+
+list.innerHTML = "";
+
+people.forEach((p,idx)=>{
+
+const li = document.createElement("li");
+
+li.textContent = `${idx+1} - ${p.name}`;
+
+const btn = document.createElement("button");
+
+btn.textContent = "Check Role";
+
+btn.onclick = ()=>{
+
+const r = roles[p.id];
+
+if(!r) return alert("الأدوار لم تُحدد");
+
+if(r === "Imposter")
+
+alert(`${p.name}\nأنت Imposter\nHint: ${currentHint}`);
+
+else
+
+alert(`${p.name}\nالكلمة هي: ${currentWord}`);
+
+};
+
+li.appendChild(btn);
+
+list.appendChild(li);
+
+});
+
+}
+
+// البداية
+if(people.length>0 && Object.keys(roles).length===0)
+assignRolesOnce();
+
+renderList();
+
+// إضافة لاعب
+addbtn.addEventListener("click",()=>{
+
+const name = inputadd.value.trim();
+
+if(!name) return;
+
+const newPerson = {id:makeId(),name};
+
+people.push(newPerson);
+
+if(Object.keys(roles).length===0){
+
+assignRolesOnce();
+
+}else{
+
+roles[newPerson.id] = "Crewmate";
+
+saveData();
+
+}
+
+renderList();
+
+inputadd.value="";
+
+});
+
+// إعادة توزيع
+regenbtn.addEventListener("click",()=>{
+
+assignRolesOnce();
+
+renderList();
+
+alert("تم توزيع الأدوار من جديد");
+
+});
+
+// حذف آخر لاعب
+removelast.addEventListener("click",()=>{
+
+if(people.length===0) return;
+
+const removed = people.pop();
+
+delete roles[removed.id];
+
+if(!Object.values(roles).includes("Imposter") && people.length>0){
+
+const newImp = people[pickRandomIndex(people.length)].id;
+
+roles[newImp] = "Imposter";
+
+}
+
+saveData();
+
+renderList();
+
+});
+   </script>
 </body>
 
 </html>
